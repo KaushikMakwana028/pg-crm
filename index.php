@@ -55,6 +55,9 @@
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
+	// Enforce Indian Standard Time (Asia/Kolkata) across the entire application
+	date_default_timezone_set('Asia/Kolkata');
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

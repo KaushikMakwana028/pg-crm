@@ -49,6 +49,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['login'] = 'auth/login';
+$route['logout'] = 'auth/logout';
+$route['auth/(:any)'] = 'auth/$1';
+
+$route['dashboard'] = 'dashboard/index';
+$route['profile'] = 'profile/index';
+$route['profile/(:any)'] = 'profile/$1';
+
+$route['vacated'] = 'tenants/vacated';
+$route['tenants'] = 'tenants/index';
+$route['tenants/detail/(:num)'] = 'tenants/detail/$1';
+$route['tenants/(:any)'] = 'tenants/$1';
+$route['tenants/(:any)/(:any)'] = 'tenants/$1/$2';
+
+$route['hotels'] = 'hotels/index';
+$route['hotels/(:any)'] = 'hotels/$1';
+
+$route['rooms'] = 'rooms/index';
+$route['rooms/(:any)'] = 'rooms/$1';
+
+$route['rent'] = 'rent/index';
+$route['rent/(:any)'] = 'rent/$1';
+
+$route['finance'] = 'finance/index';
+$route['finance/(:any)'] = 'finance/$1';
+
+$route['occupancy'] = 'occupancy/index';
+$route['occupancy/(:any)'] = 'occupancy/$1';
+
+$route['settings'] = 'settings/index';
+$route['settings/(:any)'] = 'settings/$1';

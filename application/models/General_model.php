@@ -7,6 +7,8 @@ class General_model extends CI_Model
     {
         parent::__construct();
         $this->load->database();
+        date_default_timezone_set('Asia/Kolkata');
+        $this->db->query("SET time_zone = '+05:30'");
     }
 
     public function getOne($table, $where)
@@ -35,6 +37,11 @@ class General_model extends CI_Model
     {
         return $this->db->update($table, $data, $where);
     }
+
+    public function delete($table, $where)
+    {
+        return $this->db->delete($table, $where);
+    }
     public function getCount($table, $where = [], $isActive = null)
     {
         if (!is_null($isActive)) {
@@ -61,6 +68,18 @@ class General_model extends CI_Model
         }
         $query = $this->db->get();
         return $query->result_array();
+    }
+
+    public function customQuery($sql, $params = [])
+    {
+        $query = $this->db->query($sql, $params);
+        return is_object($query) ? $query->result() : [];
+    }
+
+    public function customQueryRow($sql, $params = [])
+    {
+        $query = $this->db->query($sql, $params);
+        return is_object($query) ? $query->row() : null;
     }
 
     public function getCurrentMonthCustomers()
